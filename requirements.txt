@@ -1,0 +1,34 @@
+# Paket untuk lab TX-AI11 — RAG dan AI Agents
+# Pasang dengan:  pip install -r requirements.txt
+#
+# Versi sengaja tidak dikunci ketat agar tetap bisa dipasang seiring waktu.
+# Sebelum mengajar, jalankan `pip freeze > versi-terpakai.txt` dan simpan —
+# supaya kalau kode peserta berbeda perilakunya, Anda tahu penyebabnya.
+
+# --- inti, wajib -------------------------------------------------------
+langchain>=0.3
+langchain-core>=0.3
+langchain-text-splitters>=0.3
+langchain-ollama>=0.2
+langchain-chroma>=0.2
+
+# PyPDFLoader dan BM25Retriever masih berada di langchain-community, yang kini
+# berstatus PEMELIHARAAN (bukan dihapus — kode tetap berjalan). Impornya bisa
+# memunculkan peringatan usang; di muat.py dan cari.py peringatan itu disenyapkan
+# HANYA di sekitar baris impornya agar layar demo bersih.
+# Sebelum mengajar: cek https://python.langchain.com untuk memastikan keduanya
+# belum pindah ke paket integrasi tersendiri. Bila sudah, perbarui impor + baris ini.
+langchain-community>=0.3
+
+pypdf>=5.0
+rank_bm25>=0.2
+
+# --- opsional ----------------------------------------------------------
+# Reranker (modul B4). Berat untuk RAM 8 GB — boleh dilewati.
+sentence-transformers>=3.0
+
+# Antarmuka (modul A5)
+streamlit>=1.40
+
+# Pembangkit dokumen contoh (hanya bila ingin mengubah korpus lab)
+reportlab>=4.0

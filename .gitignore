@@ -1,0 +1,14 @@
+# Artefak yang dibangun ulang tiap peserta — JANGAN dibagikan.
+# Indeks yang dibangun dengan embedding berbeda akan dimuat tanpa galat
+# tetapi memberi hasil acak (pelajaran F3). Karena itu tidak pernah ikut paket.
+chroma_db/
+potongan.pkl
+indeks_meta.json
+
+# Lingkungan & cache
+.venv/
+__pycache__/
+*.pyc
+
+# Catatan versi yang dibuat instruktur sebelum mengajar
+versi-terpakai.txt

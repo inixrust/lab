@@ -1,0 +1,10 @@
+# Indeks dibangun di dalam container dengan embedding yang benar — jangan
+# menyalin indeks host (bisa dibangun dengan setelan berbeda; lihat F3).
+chroma_db/
+potongan.pkl
+indeks_meta.json
+
+.venv/
+__pycache__/
+*.pyc
+versi-terpakai.txt
