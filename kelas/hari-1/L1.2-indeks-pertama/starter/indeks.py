@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+"""Langkah 3-4 pipeline pengindeksan: embedding dan penyimpanan — versi Hari 1.
+
+    python indeks.py            bangun indeks
+    python indeks.py --ulang    hapus indeks lama lalu bangun ulang
+
+Pelajaran F3: mengganti MODEL_EMBEDDING atau ukuran potongan di konfig.py
+mengharuskan pengindeksan diulang. Kalau tidak, sistem tetap berjalan TANPA galat
+apa pun — hanya hasil pencariannya yang menjadi acak. Anda membuktikannya di L1.4.
+"""
+import shutil
+import sys
+
+from langchain_chroma import Chroma
+
+import konfig
+from model import ambil_embedding
+from muat import muat_semua
+
+
+def bangun(ulang: bool = False):
+    if ulang and konfig.INDEKS.exists():
+        print(f"Menghapus indeks lama di {konfig.INDEKS.name}/ ...")
+        shutil.rmtree(konfig.INDEKS)
+
+    print("\nSetelan aktif:")
+    konfig.ringkas()
+
+    print("\n1-2. Memuat dan memotong dokumen")
+    potongan = muat_semua()
+
+    print("\n3-4. Membuat embedding dan menyimpan ke indeks")
+    print("     (bagian paling lambat — di laptop tanpa GPU bisa beberapa menit)")
+    # TODO L1.2-3: Bangun indeks Chroma dari daftar potongan: beri documents, embedding (ambil_embedding()), collection_name, dan persist_directory dari konfig.
+    raise NotImplementedError("TODO L1.2-3 - lengkapi bagian ini (lihat README / folder solution).")
+
+    jumlah = basis._collection.count()
+    print(f"\nSelesai. {jumlah} vektor tersimpan di {konfig.INDEKS.name}/")
+    print("\nCatat di catatan proyek Anda:")
+    print(f"  model embedding = {konfig.MODEL_EMBEDDING}")
+    print(f"  ukuran potongan = {konfig.UKURAN_POTONGAN}")
+    print("Mengubah salah satunya berarti indeks harus dibangun ulang (F3).")
+    return basis
+
+
+if __name__ == "__main__":
+    bangun(ulang="--ulang" in sys.argv)

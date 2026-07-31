@@ -1,0 +1,20 @@
+# Paket lab TX-AI11 - Hari 3 (agents & deployment)
+# pip install -r requirements.txt
+
+# L3.4 memakai langchain.agents.create_agent, yang baru ada di LangChain 1.0.
+# Latihan L3.1-L3.3 tetap berjalan pada versi ini.
+langchain>=1.0
+langchain-core>=1.0
+langchain-text-splitters>=0.3
+langchain-ollama>=0.2
+langchain-chroma>=0.2
+langchain-community>=0.3
+pypdf>=5.0
+rank_bm25>=0.2
+sentence-transformers>=3.0
+
+# Antarmuka (L3.2)
+streamlit>=1.40
+
+# Orchestration graph & multi-agent (L3.4)
+langgraph>=1.0

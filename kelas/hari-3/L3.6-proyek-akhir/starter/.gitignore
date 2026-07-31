@@ -1,0 +1,6 @@
+chroma_db/
+potongan.pkl
+indeks_meta.json
+__pycache__/
+*.pyc
+jejak.jsonl

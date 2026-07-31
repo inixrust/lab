@@ -1,0 +1,14 @@
+# Paket lab TX-AI11 - Hari 2 (building blocks: hybrid, rerank, evaluasi)
+# pip install -r requirements.txt
+
+langchain>=0.3
+langchain-core>=0.3
+langchain-text-splitters>=0.3
+langchain-ollama>=0.2
+langchain-chroma>=0.2
+langchain-community>=0.3
+pypdf>=5.0
+rank_bm25>=0.2
+
+# Reranker (L2.3). Berat untuk RAM 8 GB - boleh dilewati (PAKAI_RERANKER=0).
+sentence-transformers>=3.0

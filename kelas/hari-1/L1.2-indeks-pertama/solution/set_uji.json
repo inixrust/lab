@@ -1,0 +1,193 @@
+[
+ {
+  "tanya": "Berapa lama masa percobaan karyawan baru?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa hari cuti tahunan yang menjadi hak karyawan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa batas maksimum lembur dalam satu minggu?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa lama batas waktu pembayaran kepada penyedia?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa uang harian perjalanan dinas untuk golongan Manajer?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Kapan pegawai baru resmi diangkat jadi pegawai tetap?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Berapa lama sebelumnya libur tahunan harus didaftarkan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Siapa yang boleh meloloskan kerja di luar jam kantor?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Apa syarat jumlah penawaran untuk belanja menengah?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Bagaimana ketentuan pengajuan SPPD?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Apa isi SE-12/2026?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Apa yang diatur SOP-02/NCS/PRC/2026?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Aplikasi SIMPEG dipakai untuk apa saja?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Lembur 4 jam pada hari libur nasional, siapa yang menyetujui?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Pengadaan Rp 250 juta disetujui siapa dan pakai metode apa?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Apakah ada karyawan yang tidak perlu menjalani masa percobaan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "pengecualian"
+ },
+ {
+  "tanya": "Apakah karyawan masa percobaan berhak atas tunjangan jabatan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "pengecualian"
+ },
+ {
+  "tanya": "Berapa panjang minimum kata sandi sistem internal?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar 14 karakter (SOP-05). Kalau sistem menjawab 8 karakter, ia membaca SOP-03 yang sudah DICABUT."
+ },
+ {
+  "tanya": "Apakah kata sandi wajib diganti setiap 90 hari?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar: tidak lagi diwajibkan berkala. Ketentuan 90 hari berasal dari dokumen yang dicabut."
+ },
+ {
+  "tanya": "Bolehkah memakai perangkat pribadi untuk email kantor?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar: dilarang (SOP-05). SOP-03 yang dicabut menyatakan boleh."
+ },
+ {
+  "tanya": "Berapa besaran tunjangan transportasi bulanan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Bagaimana prosedur pengajuan beasiswa untuk anak karyawan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Berapa jumlah karyawan Perusahaan saat ini?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Kapan Perusahaan didirikan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ }
+]

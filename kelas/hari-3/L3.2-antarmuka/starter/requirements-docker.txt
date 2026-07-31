@@ -1,0 +1,38 @@
+# Paket untuk IMAGE DOCKER saja — bukan untuk lab di laptop peserta.
+# Untuk lab, pakai requirements.txt.
+#
+# Bedanya dengan requirements.txt: TIDAK memuat sentence-transformers dan
+# reportlab.
+#
+# Alasannya terukur, bukan selera. Dockerfile menyetel PAKAI_RERANKER=0,
+# sehingga model.ambil_reranker() keluar lebih awal dan sentence-transformers
+# tidak pernah diimpor. Tetapi memasangnya tetap menarik torch beserta seluruh
+# pustaka CUDA:
+#
+#     nvidia (CUDA)  2,7 GB
+#     torch          1,2 GB
+#     ------------------------
+#     total          3,9 GB terpasang, nol dipakai
+#
+# Ini pelajaran deployment yang layak disampaikan: image produksi hanya memuat
+# apa yang benar-benar dijalankan. Paket "untuk berjaga-jaga" itu mahal.
+#
+# Kalau Anda memang ingin reranker aktif di dalam container, bangun image
+# dengan requirements.txt penuh dan jalankan dengan -e PAKAI_RERANKER=1.
+# Konsekuensinya image membengkak sekitar 4 GB.
+
+# --- inti, wajib -------------------------------------------------------
+langchain>=0.3
+langchain-core>=0.3
+langchain-text-splitters>=0.3
+langchain-ollama>=0.2
+langchain-chroma>=0.2
+
+# Lihat catatan status langchain-community di requirements.txt.
+langchain-community>=0.3
+
+pypdf>=5.0
+rank_bm25>=0.2
+
+# --- antarmuka ---------------------------------------------------------
+streamlit>=1.40

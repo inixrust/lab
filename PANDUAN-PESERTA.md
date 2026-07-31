@@ -155,7 +155,8 @@ python nilai.py --penolakan
 
 ## Langkah 7 — Rusak, lalu ukur lagi
 
-Ini latihan paling berkesan di seluruh kelas. Ubah satu hal di `konfig.py`,
+Ini latihan paling berkesan di seluruh kelas. Ubah satu hal di
+`src/rag_lab/konfig.py`,
 lalu jalankan `python nilai.py` dan lihat apa yang terjadi pada angkanya.
 
 | Coba ubah | Yang akan Anda lihat |
@@ -266,9 +267,6 @@ lab/
 ├── dokumen/                korpus fiktif
 └── src/
     ├── cek.py              pemeriksaan kesiapan — JALANKAN PERTAMA
-    ├── konfig.py           semua setelan ada di sini
-    ├── model.py            pembuat objek model + mode tiruan
-    ├── meta.py             sidik jari indeks — jaga embedding tetap cocok (F3)
     ├── muat.py             memuat dan memotong dokumen
     ├── indeks.py           membangun indeks
     ├── cari.py             pencarian: vektor, hybrid, penyusunan ulang
@@ -276,8 +274,27 @@ lab/
     ├── nilai.py            evaluasi
     ├── agen.py             agent: model memilih & memanggil alat sendiri (A2/A6)
     ├── app.py              antarmuka Streamlit
-    └── buat_dokumen.py     pembangkit ulang dokumen contoh
+    ├── buat_dokumen.py     pembangkit ulang dokumen contoh
+    └── rag_lab/            isi sesungguhnya — berkas di atas hanya titik masuk
+        ├── konfig.py       semua setelan ada di sini
+        ├── sidik_jari.py   sidik jari indeks — jaga embedding tetap cocok (F3)
+        ├── tampilan.py     pencetak potongan dan keterangan letak sitasi
+        ├── galat.py        jenis galat lab
+        ├── diagnosa.py     isi cek.py
+        ├── antarmuka.py    isi app.py
+        ├── model/          embedding, LLM, reranker (+ mode tiruan)
+        ├── pengindeksan/   muat → potong → embed → simpan
+        ├── pengambilan/    vektor + BM25 → RRF → susun ulang
+        ├── pembangkitan/   konteks → prompt → jawaban ber-sitasi
+        ├── agen/           alat + lingkaran agent (A2/A6)
+        ├── evaluasi/       set uji dan metrik
+        └── perintah/       penguraian argumen tiap titik masuk
 ```
 
-Semua setelan yang mungkin perlu diubah ada di `konfig.py`. Kalau Anda ingin
-mengubah sesuatu, mulailah dari sana.
+Perintah yang Anda jalankan tidak berubah: `python jawab.py "..."` tetap
+`python jawab.py "..."`. Berkas di `src/` sengaja dibuat tipis — isinya
+dipindahkan ke paket `rag_lab/` agar tiap bagian pipeline bisa dibaca,
+diubah, dan diuji sendiri-sendiri.
+
+Semua setelan yang mungkin perlu diubah ada di `rag_lab/konfig.py`. Kalau Anda
+ingin mengubah sesuatu, mulailah dari sana.

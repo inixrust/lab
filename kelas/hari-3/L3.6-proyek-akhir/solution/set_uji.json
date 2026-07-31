@@ -1,0 +1,380 @@
+[
+ {
+  "tanya": "Berapa lama masa percobaan karyawan baru?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa hari cuti tahunan yang menjadi hak karyawan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa batas maksimum lembur dalam satu minggu?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa lama batas waktu pembayaran kepada penyedia?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa uang harian perjalanan dinas untuk golongan Manajer?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Kapan pegawai baru resmi diangkat jadi pegawai tetap?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Berapa lama sebelumnya libur tahunan harus didaftarkan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Siapa yang boleh meloloskan kerja di luar jam kantor?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Apa syarat jumlah penawaran untuk belanja menengah?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Bagaimana ketentuan pengajuan SPPD?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Apa isi SE-12/2026?",
+  "sumber": "SE-12-2026-Perjalanan-Dinas.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Apa yang diatur SOP-02/NCS/PRC/2026?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Aplikasi SIMPEG dipakai untuk apa saja?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Lembur 4 jam pada hari libur nasional, siapa yang menyetujui?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Pengadaan Rp 250 juta disetujui siapa dan pakai metode apa?",
+  "sumber": "SOP-02-Pengadaan.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Apakah ada karyawan yang tidak perlu menjalani masa percobaan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "pengecualian"
+ },
+ {
+  "tanya": "Apakah karyawan masa percobaan berhak atas tunjangan jabatan?",
+  "sumber": "SOP-01-Kepegawaian.pdf",
+  "halaman": [
+   2
+  ],
+  "jenis": "pengecualian"
+ },
+ {
+  "tanya": "Berapa panjang minimum kata sandi sistem internal?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar 14 karakter (SOP-05). Kalau sistem menjawab 8 karakter, ia membaca SOP-03 yang sudah DICABUT."
+ },
+ {
+  "tanya": "Apakah kata sandi wajib diganti setiap 90 hari?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar: tidak lagi diwajibkan berkala. Ketentuan 90 hari berasal dari dokumen yang dicabut."
+ },
+ {
+  "tanya": "Bolehkah memakai perangkat pribadi untuk email kantor?",
+  "sumber": "SOP-05-Keamanan-Informasi.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar: dilarang (SOP-05). SOP-03 yang dicabut menyatakan boleh."
+ },
+ {
+  "tanya": "Berapa lama batas waktu pencatatan aset TI setelah barang diterima?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Apa itu BAST dalam pengelolaan aset?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Apa yang diatur SOP-07/NCS/TI/2026?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Berapa lama masa pakai komputer jinjing sebelum diganti?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "tabel",
+  "catatan": "Jawabannya ada di dalam tabel masa pakai. Kasus seperti inilah yang paling terpengaruh ukuran potongan (peningkatan 3)."
+ },
+ {
+  "tanya": "Berapa lama batas pelaporan kehilangan perangkat kerja?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Kapan perangkat kantor harus dikembalikan bila karyawan mengundurkan diri?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Penghapusan aset TI dengan nilai buku Rp 15.000.000 disetujui siapa?",
+  "sumber": "SOP-07-Pengelolaan-Aset-TI.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Berapa hari kerja hibrida yang diperbolehkan dalam satu minggu?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar 2 hari (SE-15). Kalau sistem menjawab 4 hari, ia membaca SE-09 yang sudah DICABUT."
+ },
+ {
+  "tanya": "Berapa lama sebelumnya pengajuan kerja hibrida harus disampaikan?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "parafrasa"
+ },
+ {
+  "tanya": "Apakah karyawan masa percobaan boleh mengambil kerja hibrida?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "pengecualian"
+ },
+ {
+  "tanya": "Pukul berapa jam inti yang wajib daring selama kerja hibrida?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar 09.00-15.00 WIB (SE-15). SE-09 yang dicabut menyatakan tidak ada jam inti."
+ },
+ {
+  "tanya": "Bolehkah memakai perangkat pribadi selama kerja hibrida?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "versi",
+  "catatan": "Jawaban benar: dilarang (SE-15 Pasal 5). SE-09 yang dicabut memperbolehkannya."
+ },
+ {
+  "tanya": "Berapa besaran tunjangan konektivitas kerja hibrida per bulan?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Unit kerja mana saja yang dikecualikan dari kerja hibrida?",
+  "sumber": "SE-15-2026-Kerja-Hibrida.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "tabel"
+ },
+ {
+  "tanya": "Apa isi KTR-08/NCS/PRC/2026?",
+  "sumber": "KTR-08-2026-Sewa-Pusat-Data.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "nomor_dokumen"
+ },
+ {
+  "tanya": "Berapa lama pemberitahuan sebelum kontrak pusat data berakhir agar tidak diperpanjang otomatis?",
+  "sumber": "KTR-08-2026-Sewa-Pusat-Data.pdf",
+  "halaman": [
+   0
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Berapa nilai perjanjian sewa layanan kolokasi pusat data?",
+  "sumber": "KTR-08-2026-Sewa-Pusat-Data.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "mudah"
+ },
+ {
+  "tanya": "Berapa SLA ketersediaan yang dijamin penyedia pusat data?",
+  "sumber": "KTR-08-2026-Sewa-Pusat-Data.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "singkatan"
+ },
+ {
+  "tanya": "Ketersediaan bulanan turun ke 98,5 persen, berapa kompensasinya?",
+  "sumber": "KTR-08-2026-Sewa-Pusat-Data.pdf",
+  "halaman": [
+   1
+  ],
+  "jenis": "tabel"
+ },
+ {
+  "tanya": "Berapa orang yang direkrut pada triwulan kedua 2026?",
+  "sumber": "NR-05-2026-Rapat-Anggaran-Triwulan.md",
+  "halaman": [
+   null
+  ],
+  "jenis": "mudah",
+  "catatan": "Sumber Markdown tidak punya nomor halaman; metadata page bernilai null. Lihat util.lokasi."
+ },
+ {
+  "tanya": "Berapa tambahan anggaran yang disetujui untuk tunjangan konektivitas?",
+  "sumber": "NR-05-2026-Rapat-Anggaran-Triwulan.md",
+  "halaman": [
+   null
+  ],
+  "jenis": "sulit"
+ },
+ {
+  "tanya": "Berapa besaran tunjangan transportasi bulanan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Berapa tarif parkir kendaraan di kantor pusat?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Siapa penyedia layanan kebersihan kantor?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Bagaimana prosedur pengajuan beasiswa untuk anak karyawan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Berapa jumlah karyawan Perusahaan saat ini?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ },
+ {
+  "tanya": "Kapan Perusahaan didirikan?",
+  "sumber": null,
+  "halaman": [],
+  "harus_menolak": true,
+  "jenis": "penolakan"
+ }
+]

@@ -78,7 +78,7 @@ docker run --rm -p 8501:8501 -v tanyasop-indeks:/app tanya-sop
 > **Peringatan (pelajaran F3):** indeks pada volume terikat pada model embedding
 > yang membangunnya. Kalau Anda mengganti `MODEL_EMBEDDING`, hapus volume itu
 > agar indeks dibangun ulang — kalau tidak, hasil pencarian menjadi acak tanpa
-> galat. `meta.py` di dalam container akan memperingatkan bila ketidakcocokan
+> galat. `rag_lab/sidik_jari.py` di dalam container akan memperingatkan bila ketidakcocokan
 > ini terdeteksi.
 
 ## Catatan produksi (arah lanjut, di luar lab)
