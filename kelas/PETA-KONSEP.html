@@ -1,0 +1,580 @@
+<title>Peta Konsep &amp; Alur — kelas/ (TX-AI11)</title>
+<style>
+  :root{
+    --bg:#EAE7DD;
+    --paper:#F5F3EA;          /* fixed panel tone — diagrams live here in both themes */
+    --paper-ink:#23241F;
+    --ink:#23241F;
+    --ink-soft:#5B5C52;
+    --ink-faint:#8A8C7E;
+    --line:#C9C4B0;
+    --line-soft:#DBD7C7;
+    --accent:#2C5F6B;         /* hari 2 — vektor / presisi */
+    --accent-soft:#DDE6E4;
+    --accent2:#9C5B2E;        /* hari 3 — orkestrasi / stempel */
+    --accent2-soft:#EEE0CE;
+    --ok:#3E7D4C;
+    --warn:#B0472B;
+    --shadow: 0 1px 0 rgba(35,36,31,.06);
+    --mono: "IBM Plex Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --serif: "Iowan Old Style","Palatino Linotype",Palatino,"URW Palladio","Noto Serif",Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14171A;
+      --paper:#F5F3EA;
+      --paper-ink:#23241F;
+      --ink:#E7E4D9;
+      --ink-soft:#A9AB9C;
+      --ink-faint:#6E7166;
+      --line:#33372F;
+      --line-soft:#262922;
+      --accent:#7FB4C2;
+      --accent-soft:#1C2E32;
+      --accent2:#D08A4C;
+      --accent2-soft:#2E2419;
+      --ok:#5FA871;
+      --warn:#D9724F;
+      --shadow: 0 1px 0 rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171A; --paper:#F5F3EA; --paper-ink:#23241F; --ink:#E7E4D9; --ink-soft:#A9AB9C;
+    --ink-faint:#6E7166; --line:#33372F; --line-soft:#262922; --accent:#7FB4C2; --accent-soft:#1C2E32;
+    --accent2:#D08A4C; --accent2-soft:#2E2419; --ok:#5FA871; --warn:#D9724F; --shadow: 0 1px 0 rgba(0,0,0,.4);
+  }
+  :root[data-theme="light"]{
+    --bg:#EAE7DD; --paper:#F5F3EA; --paper-ink:#23241F; --ink:#23241F; --ink-soft:#5B5C52;
+    --ink-faint:#8A8C7E; --line:#C9C4B0; --line-soft:#DBD7C7; --accent:#2C5F6B; --accent-soft:#DDE6E4;
+    --accent2:#9C5B2E; --accent2-soft:#EEE0CE; --ok:#3E7D4C; --warn:#B0472B; --shadow: 0 1px 0 rgba(35,36,31,.06);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, var(--line-soft) 27px, var(--line-soft) 28px),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent); color:var(--paper);}
+
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px 120px;}
+
+  /* ---------- header ---------- */
+  header.masthead{
+    max-width:920px; margin:0 auto; padding:64px 24px 28px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft); display:flex; gap:10px; align-items:center; margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);flex:none;}
+  h1.title{
+    font-family:var(--serif); font-weight:600; font-size:clamp(30px,4.6vw,44px);
+    line-height:1.08; margin:0 0 14px; text-wrap:balance; letter-spacing:-.01em;
+  }
+  .lede{
+    font-size:17.5px; color:var(--ink-soft); max-width:62ch; margin:0 0 26px;
+  }
+  .lede em{color:var(--ink); font-style:italic;}
+
+  nav.jump{
+    display:flex; flex-wrap:wrap; gap:2px 18px; font-family:var(--mono); font-size:12.5px;
+    letter-spacing:.04em; text-transform:uppercase; padding-top:4px;
+  }
+  nav.jump a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav.jump a:hover{color:var(--accent); border-bottom-color:var(--accent);}
+
+  /* ---------- sections ---------- */
+  section{padding-top:64px; scroll-margin-top:24px;}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;}
+  .sec-num{font-family:var(--mono); font-size:13px; color:var(--accent2); letter-spacing:.06em;}
+  h2.sec-title{font-family:var(--serif); font-weight:600; font-size:28px; margin:0; letter-spacing:-.01em;}
+  .sec-dek{color:var(--ink-soft); max-width:66ch; margin:10px 0 30px; font-size:16px;}
+
+  /* ---------- figure panels (diagrams) ---------- */
+  figure.panel{
+    margin:0 0 14px; background:var(--paper); color:var(--paper-ink);
+    border:1px solid #00000014; border-radius:2px; box-shadow:var(--shadow);
+    padding:22px 20px 16px; position:relative;
+  }
+  figure.panel::before{
+    content:""; position:absolute; inset:6px; border:1px solid #00000010; pointer-events:none;
+  }
+  figure.panel .mermaid{display:flex; justify-content:center;}
+  figure.panel .mermaid svg{max-width:100%; height:auto;}
+  .panel-scroll{overflow-x:auto; padding-bottom:4px;}
+  figcaption{
+    font-family:var(--mono); font-size:12px; color:#6b6d60; letter-spacing:.03em;
+    padding-top:12px; border-top:1px dashed #00000018; margin-top:14px;
+  }
+  figcaption b{color:#3a3b32;}
+  .fig-wrap{margin-bottom:44px;}
+
+  /* legend chips */
+  .legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-family:var(--mono); font-size:12px; color:var(--ink-soft); margin:0 0 22px;}
+  .legend span{display:inline-flex; align-items:center; gap:7px;}
+  .legend i{width:11px;height:11px;border-radius:2px;display:inline-block; border:1px solid #0002;}
+
+  /* ---------- exercise cards ---------- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-bottom:8px;}
+  .card{
+    border:1px solid var(--line); background:transparent; padding:18px 18px 16px; border-radius:2px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .card .badge{
+    font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--paper);
+    background:var(--accent); align-self:flex-start; padding:3px 8px; border-radius:2px;
+  }
+  .card.h1 .badge{background:var(--ink-soft);}
+  .card.h2 .badge{background:var(--accent);}
+  .card.h3 .badge{background:var(--accent2);}
+  .card h3{margin:0; font-family:var(--serif); font-size:18px; font-weight:600; letter-spacing:-.005em;}
+  .card blockquote{
+    margin:0; padding-left:12px; border-left:2px solid var(--line);
+    font-style:italic; color:var(--ink-soft); font-size:14.5px; line-height:1.5;
+  }
+  .card .fact{font-family:var(--mono); font-size:12.5px; color:var(--ink-faint); line-height:1.5;}
+  .card .fact b{color:var(--ink);}
+
+  /* day intro banner */
+  .day-note{
+    font-size:15.5px; color:var(--ink-soft); background:var(--line-soft); border-left:3px solid var(--accent2);
+    padding:14px 18px; margin:0 0 28px; max-width:70ch;
+  }
+  :root[data-theme="dark"] .day-note, @media (prefers-color-scheme:dark){ .day-note{background:#1c1f1a;} }
+
+  .callout{
+    font-size:14.5px; border:1px dashed var(--warn); color:var(--ink-soft);
+    padding:12px 16px; margin:0 0 30px; max-width:70ch; background:color-mix(in srgb, var(--warn) 8%, transparent);
+  }
+  .callout b{color:var(--warn);}
+
+  /* glossary */
+  .glos-day{margin-bottom:26px;}
+  .glos-day h4{
+    font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); margin:0 0 10px;
+  }
+  .tagrow{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--mono); font-size:12.5px; border:1px solid var(--line); padding:5px 10px;
+    border-radius:20px; color:var(--ink-soft); white-space:nowrap;
+  }
+  .glos-day.h2 .tag{border-color:color-mix(in srgb, var(--accent) 45%, var(--line));}
+  .glos-day.h3 .tag{border-color:color-mix(in srgb, var(--accent2) 45%, var(--line));}
+
+  footer{
+    max-width:920px; margin:70px auto 0; padding:22px 24px 0; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:12px; color:var(--ink-faint); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+
+  @media (max-width:600px){
+    header.masthead{padding:44px 20px 24px;}
+    .wrap{padding:0 20px 100px;}
+    figure.panel{padding:16px 12px 14px;}
+  }
+</style>
+
+<header class="masthead">
+  <div class="eyebrow"><span class="dot"></span> TX-AI11 &nbsp;·&nbsp; Building Intelligent Applications with RAG &amp; AI Agents</div>
+  <h1 class="title">Peta Konsep &amp; Alur — <code style="font-family:var(--mono); font-size:.62em; font-weight:400;">kelas/</code></h1>
+  <p class="lede">Empat belas latihan, tiga hari, satu pipeline yang tumbuh. Tiap kotak di bawah adalah kode yang benar-benar berjalan — <em>bukan sekadar rencana</em> — dari indeks vektor pertama sampai graf berkeadaan dengan manusia di tengahnya.</p>
+  <nav class="jump">
+    <a href="#kurikulum">Kurikulum</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#hari1">Hari 1</a>
+    <a href="#hari2">Hari 2</a>
+    <a href="#hari3">Hari 3</a>
+    <a href="#glosarium">Glosarium</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ================= KURIKULUM ================= -->
+  <section id="kurikulum">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Peta Kurikulum</h2></div>
+    <p class="sec-dek">Kumulatif secara ketat: tiap latihan adalah snapshot lengkap sampai titik itu. Hari 3 sendiri punya bentuk internal — L3.1–L3.3 membangun <b>kemampuan</b>, L3.4+L3.5 <b>berpasangan</b> (guardrail berkeping, lalu menyatu jadi satu graf), dan L3.6 adalah <b>penutup</b>, bukan latihan baru.</p>
+
+    <div class="legend">
+      <span><i style="background:var(--ink-soft)"></i>Hari 1 — fondasi</span>
+      <span><i style="background:var(--accent)"></i>Hari 2 — presisi pengambilan</span>
+      <span><i style="background:var(--accent2)"></i>Hari 3 — orkestrasi &amp; tata kelola</span>
+    </div>
+
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px','clusterBkg':'#F5F3EA','clusterBorder':'#C9C4B0'}}}%%
+flowchart TD
+    subgraph H1["HARI 1 · Fondasi: AI Knowledge Stack &amp; RAG"]
+    direction LR
+    L11["L1.1<br/>Lingkungan"]:::h1n --> L12["L1.2<br/>Indeks Pertama"]:::h1n --> L13["L1.3<br/>Tanya &amp; Baca Potongan"]:::h1n --> L14["L1.4<br/>Embedding Menentukan"]:::h1n
+    end
+
+    subgraph H2["HARI 2 · Building Blocks: Vector DB, Enhancement, Evaluasi"]
+    direction LR
+    L21["L2.1<br/>Amati Chunking"]:::h2n --> L22["L2.2<br/>Metadata Dicabut"]:::h2n --> L23["L2.3<br/>Tiga Cara Cari"]:::h2n --> L24["L2.4<br/>Ukur, Rusak, Ukur"]:::h2n
+    end
+
+    subgraph H3["HARI 3 · AI Agents, Orchestration, Deployment"]
+    direction TB
+      subgraph K3["membangun kemampuan"]
+      direction LR
+      L31["L3.1<br/>Agent"]:::h3n --> L32["L3.2<br/>Antarmuka"]:::h3n --> L33["L3.3<br/>Graf &amp; Tim"]:::h3n
+      end
+      subgraph P3["berpasangan · guardrail"]
+      direction LR
+      L34["L3.4<br/>Guardrail &amp; Jejak<br/><i>berkeping</i>"]:::h3n --> L35["L3.5<br/>Graf Berkeadaan<br/><i>menyatu</i>"]:::h3n
+      end
+      L36["L3.6<br/>Proyek Akhir<br/>pilih 2, lalu ukur"]:::h3n
+      K3 --> P3 --> L36
+    end
+
+    H1 --> H2 --> H3
+
+    classDef h1n fill:#EDEBDF,stroke:#8A8C7E,color:#23241F,stroke-width:1px;
+    classDef h2n fill:#DDE6E4,stroke:#2C5F6B,color:#1B3C42,stroke-width:1px;
+    classDef h3n fill:#EEE0CE,stroke:#9C5B2E,color:#4A2F14,stroke-width:1px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 1.</b> Rute 14 latihan. Panah antar-hari = ketergantungan penuh; panah dalam grup Hari 3 = penambahan kemampuan di atas kode yang sama.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= PIPELINE ================= -->
+  <section id="pipeline">
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Evolusi Pipeline RAG</h2></div>
+    <p class="sec-dek">Satu pipeline yang sama, difoto di tiga titik waktu. Warna kotak menandai <b>hari saat kemampuan itu ditambahkan</b> — bukan tiga sistem berbeda, satu sistem yang tumbuh.</p>
+
+    <div class="legend">
+      <span><i style="background:var(--ink-soft)"></i>dasar (H1)</span>
+      <span><i style="background:var(--accent)"></i>ditingkatkan (H2)</span>
+      <span><i style="background:var(--accent2)"></i>diamankan &amp; diorkestrasi (H3)</span>
+    </div>
+
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px'}}}%%
+flowchart LR
+    DOC["dokumen/<br/>SOP · Edaran · Notulen · Kontrak"]:::io --> MUAT["muat + potong<br/><i>per-jenis + konteks induk</i>"]:::h2n
+    MUAT --> EMBED["embed<br/>bge-m3"]:::h1n
+    EMBED --> IDX[("chroma_db<br/>+ potongan.pkl")]:::h1n
+
+    Q["pertanyaan + peran"]:::io --> GATE["izin → singgahan<br/><i>cache per hak akses</i>"]:::h3n
+    GATE --> CARI["cari<br/>vektor + BM25 → RRF → rerank"]:::h2n
+    IDX --> CARI
+    CARI --> SARING["saring status<br/>berlaku vs dicabut"]:::h2n
+    SARING --> KTX["susun konteks + sitasi"]:::h1n
+    KTX --> JAWAB["model menjawab"]:::h1n
+    JAWAB --> PERIKSA["periksa sitasi<br/>cakupan + dukungan"]:::h3n
+    PERIKSA --> ESK{{"eskalasi ke manusia?"}}:::h3n
+    ESK -- ya --> HM["persetujuan manusia<br/>interrupt()"]:::h3n
+    ESK -- tidak --> JEJAK["jejak + evaluasi<br/>recall@k, p50/p95"]:::h3n
+    HM --> JEJAK
+    JEJAK --> HASIL["jawaban ke pengguna"]:::io
+
+    classDef h1n fill:#EDEBDF,stroke:#8A8C7E,color:#23241F,stroke-width:1px;
+    classDef h2n fill:#DDE6E4,stroke:#2C5F6B,color:#1B3C42,stroke-width:1px;
+    classDef h3n fill:#EEE0CE,stroke:#9C5B2E,color:#4A2F14,stroke-width:1px;
+    classDef io fill:transparent,stroke:#23241F,color:#23241F,stroke-width:1.5px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 2.</b> Jalur atas = pembuatan indeks (sekali per korpus). Jalur bawah = satu siklus tanya-jawab. Kotak abu = ada sejak L1.2/L1.3; teal = ditambah L2.1–L2.4; ochre = ditambah L3.4–L3.6.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= HARI 1 ================= -->
+  <section id="hari1">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Hari 1 — Fondasi</h2></div>
+    <p class="sec-dek">AI Knowledge Stack &amp; RAG. Empat latihan yang membangun — lalu sengaja merusak — indeks vektor pertama.</p>
+
+    <div class="grid">
+      <div class="card h1">
+        <span class="badge">L1.1</span>
+        <h3>Lingkungan</h3>
+        <blockquote>Pastikan Python, paket, Ollama, model, dan dokumen siap SEBELUM menulis kode apa pun.</blockquote>
+        <div class="fact">python cek.py → semua baris <b>[ OK ]</b>, qwen3 &amp; bge-m3 terbaca Ollama.</div>
+      </div>
+      <div class="card h1">
+        <span class="badge">L1.2</span>
+        <h3>Indeks Pertama</h3>
+        <blockquote>Muat dokumen → potong → embed → simpan. Basis data vektor pertama Anda.</blockquote>
+        <div class="fact">indeks.py melaporkan <b>jumlah vektor</b> tersimpan di chroma_db/.</div>
+      </div>
+      <div class="card h1">
+        <span class="badge">L1.3</span>
+        <h3>Tanya &amp; Baca Potongan</h3>
+        <blockquote>Ajukan pertanyaan; LIHAT potongan yang terambil lebih dulu, baru jawaban model.</blockquote>
+        <div class="fact">jawab.py: potongan dulu, lalu jawaban ber-sitasi <b>[1]/[2]</b>.</div>
+      </div>
+      <div class="card h1">
+        <span class="badge">L1.4</span>
+        <h3>Embedding Menentukan</h3>
+        <blockquote>Buktikan sendiri: ganti embedding tanpa indeks ulang membuat hasil ACAK — tanpa galat.</blockquote>
+        <div class="fact">Pelajaran <b>F3</b>: embedding indeks &amp; kueri wajib sama; ganti = wajib indeks ulang.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HARI 2 ================= -->
+  <section id="hari2">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Hari 2 — Building Blocks</h2></div>
+    <p class="sec-dek">Vector DB, Enhancement, Prompt, Evaluasi. Retrieval "yang terasa oke" diubah paksa jadi angka yang bisa diperdebatkan.</p>
+
+    <div class="grid">
+      <div class="card h2">
+        <span class="badge">L2.1</span>
+        <h3>Amati Chunking</h3>
+        <blockquote>Satu strategi chunk tak cukup. Potong peraturan di batas Pasal; sisipkan jalur judul ke isi potongan.</blockquote>
+        <div class="fact">Tiap potongan diawali <b>[sumber &gt; bab &gt; bagian]</b> yang ikut di-embed.</div>
+      </div>
+      <div class="card h2">
+        <span class="badge">L2.2</span>
+        <h3>Metadata Dicabut</h3>
+        <blockquote>SOP-03 (DICABUT) &amp; SOP-05 (BERLAKU) bertentangan. Cegah yang dicabut masuk konteks — di KODE, bukan prompt.</blockquote>
+        <div class="fact">Penyaring bawaan: hanya <b>status=berlaku</b> yang lolos ke model.</div>
+      </div>
+      <div class="card h2">
+        <span class="badge">L2.3</span>
+        <h3>Tiga Cara Cari</h3>
+        <blockquote>Vektor lemah pada nomor surat &amp; singkatan. Tambah BM25 → RRF → reranker, dan perluasan singkatan.</blockquote>
+        <div class="fact">Tiga blok berdampingan: <b>vektor saja · hybrid · hybrid+susun ulang</b>.</div>
+      </div>
+      <div class="card h2">
+        <span class="badge">L2.4</span>
+        <h3>Ukur, Rusak, Ukur</h3>
+        <blockquote>Ubah "rasanya lebih baik" jadi angka recall. Lalu RUSAK satu komponen dan ukur lagi.</blockquote>
+        <div class="fact">recall@4 naik vektor→hybrid→susun ulang; MODE_TIRUAN menjatuhkannya <b>tanpa galat</b>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HARI 3 ================= -->
+  <section id="hari3">
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Hari 3 — Agents, Orchestration, Deployment</h2></div>
+    <p class="sec-dek">Enam latihan, tiga alur nyata di bawah ini. Lingkaran agent tulisan-tangan (L3.1) dinaikkan jadi graph (L3.3), lalu graph itu dipakai untuk mencampur langkah pasti, langkah model, dan manusia (L3.4→L3.5).</p>
+
+    <div class="legend">
+      <span><i style="background:#EDEBDF;border-color:#8A8C7E"></i>pasti — di kode, bisa diaudit</span>
+      <span><i style="background:#2C5F6B"></i>model — mahal, tak bisa dijamin</span>
+      <span><i style="background:#9C5B2E"></i>manusia — alur benar-benar berhenti</span>
+    </div>
+
+    <!-- L3.1 -->
+    <div class="grid" style="margin-bottom:26px;">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.1</span>
+        <h3>Agent yang Memanggil Alat Sendiri</h3>
+        <blockquote>Agent = SEBUAH LINGKARAN: model memilih alat, kita jalankan, hasil kembali, ulangi sampai selesai.</blockquote>
+      </div>
+    </div>
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px'}}}%%
+flowchart TD
+    Q["pertanyaan"]:::io --> M{"model memilih alat"}:::model
+    M -- cari_kebijakan --> T1["cari_kebijakan"]:::pasti
+    M -- hitung --> T2["hitung"]:::pasti
+    M -- "hitung_tanggal · L3.6" --> T3["hitung_tanggal"]:::pasti
+    M -- selesai --> A["jawaban akhir"]:::io
+    T1 --> M
+    T2 --> M
+    T3 --> M
+
+    classDef pasti fill:#EDEBDF,stroke:#5B5C52,color:#23241F,stroke-width:1px;
+    classDef model fill:#2C5F6B,stroke:#1B3C46,color:#F5F3EC,stroke-width:1px;
+    classDef io fill:transparent,stroke:#23241F,color:#23241F,stroke-width:1.5px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 3.</b> L3.1 — lingkaran tulisan tangan (agen.py). L3.3 menyatakan ulang loop ini sebagai <code>StateGraph</code> eksplisit (graf.py) — perilakunya identik, hanya cara menyatakannya yang naik level.</figcaption>
+      </figure>
+    </div>
+
+    <!-- L3.2 -->
+    <div class="grid" style="margin-bottom:44px;">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.2</span>
+        <h3>Membungkus Pipeline Jadi Antarmuka</h3>
+        <blockquote>Terminal tak meyakinkan atasan. Bungkus pipeline jadi antarmuka Streamlit yang bisa diklik.</blockquote>
+        <div class="fact">Tiap sitasi <b>[1]…[4]</b> membuka halaman ASLI dokumen, bagian yang dibaca model disorot. Boleh diperiksa, tidak boleh dibawa pulang — yang dikirim ke peramban hanya teks halaman itu, bukan berkasnya.</div>
+      </div>
+    </div>
+
+    <!-- L3.3 -->
+    <div class="grid" style="margin-bottom:26px;">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.3</span>
+        <h3>Dari Loop ke Graph &amp; Tim Agent</h3>
+        <blockquote>Untuk dua alat, lingkaran manual lebih pendek dan lebih jelas. Graph mulai membayar ketika beberapa agent harus bergantian.</blockquote>
+      </div>
+    </div>
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px'}}}%%
+flowchart TD
+    Q["pertanyaan"]:::io --> PY{"penyelia<br/>giliran siapa?"}:::model
+    PY -- pencari --> PC["pencari<br/>cari_kebijakan"]:::pasti
+    PY -- penghitung --> PH["penghitung<br/>hitung"]:::pasti
+    PY -- "penanggal · L3.6" --> PT["penanggal<br/>hitung_tanggal"]:::pasti
+    PY -- selesai --> RK["perangkum"]:::model
+    PC --> PY
+    PH --> PY
+    PT --> PY
+    RK --> A["jawaban tim"]:::io
+
+    classDef pasti fill:#EDEBDF,stroke:#5B5C52,color:#23241F,stroke-width:1px;
+    classDef model fill:#2C5F6B,stroke:#1B3C46,color:#F5F3EC,stroke-width:1px;
+    classDef io fill:transparent,stroke:#23241F,color:#23241F,stroke-width:1.5px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 4.</b> tim.py — penyelia + anggota spesialis. Batas <code>MAKS_PUTARAN</code> menahan penyelia yang menunjuk ulang anggota yang sama; diamati saat pengujian L3.6, penyelia kadang berhenti sebelum anggota barunya sempat dipanggil sama sekali — bukti bahwa menambah anggota tim tidak otomatis berarti anggota itu terpakai.</figcaption>
+      </figure>
+    </div>
+
+    <!-- L3.4 -->
+    <div class="grid" style="margin-bottom:26px;">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.4</span>
+        <h3>Hak Akses, Cache yang Tidak Bocor, dan Jejak</h3>
+        <blockquote>Kebocoran datang dari jalan pintas yang melewati pagar, bukan dari pagar yang jebol.</blockquote>
+      </div>
+    </div>
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px'}}}%%
+flowchart LR
+    Q["pertanyaan + peran"]:::io --> IZ["izin.saring_untuk<br/>peran → jenis boleh"]:::pasti
+    IZ --> SG{"singgahan<br/>kunci = peran + pertanyaan"}:::pasti
+    SG -- kena --> J1["jawaban dari cache"]:::io
+    SG -- meleset --> CR["cari<br/>dengan penyaring izin"]:::pasti
+    CR --> JW["jawab"]:::model
+    JW --> PG["saring_potongan<br/>pagar terakhir"]:::pasti
+    PG --> SM2["simpan cache + jejak"]:::pasti
+    SM2 --> J2["jawaban"]:::io
+
+    classDef pasti fill:#EDEBDF,stroke:#5B5C52,color:#23241F,stroke-width:1px;
+    classDef model fill:#2C5F6B,stroke:#1B3C46,color:#F5F3EC,stroke-width:1px;
+    classDef io fill:transparent,stroke:#23241F,color:#23241F,stroke-width:1.5px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 5.</b> tanya.py. Kunci cache HARUS memuat peran — tanpa itu, jawaban untuk pimpinan bisa terhidang ke staf lewat cache, sementara <code>izin.py</code> sendiri tidak rusak sedikit pun.</figcaption>
+      </figure>
+    </div>
+    <p class="callout"><b>Peragaan nyata:</b> <code>python singgahan.py</code> menunjukkan kunci tanpa hak akses memberi isi notulen ke staf; kunci yang benar meleset dengan sengaja — dan meleset di sini berarti aman.</p>
+
+    <!-- L3.5 / L3.6 hero -->
+    <div class="grid" style="margin-bottom:26px;">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.5</span>
+        <h3>Langkah Pasti, Langkah Model, dan Manusia di Tengah</h3>
+        <blockquote>Tidak semua langkah perlu model. Yang bisa dipastikan, pastikan — sisanya baru serahkan ke model, dan sediakan tempat bagi manusia untuk menyela.</blockquote>
+        <div class="fact">Pada jalan sungguhan: <b>5 langkah pasti, 1 langkah model</b> per pertanyaan. <code>interrupt()</code> menyimpan keadaan ke checkpointer — proses boleh mati, alur lanjut dari simpul yang sama, bukan diulang dari awal.</div>
+      </div>
+    </div>
+    <div class="fig-wrap">
+      <figure class="panel">
+        <div class="panel-scroll">
+<pre class="mermaid">
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBDF','primaryTextColor':'#23241F','primaryBorderColor':'#5B5C52','lineColor':'#5B5C52','fontFamily':'IBM Plex Mono, Menlo, monospace','fontSize':'13px'}}}%%
+flowchart TD
+    START(["mulai"]):::io --> SM["saring_masukan<br/><i>pagar masukan · L3.6</i>"]:::pasti
+    SM -- diblokir --> TOLAK["tolak"]:::pasti
+    SM -- lolos --> IZ["izin"]:::pasti
+    IZ --> SG{"singgahan"}:::pasti
+    SG -- kena --> CATAT["catat jejak audit"]:::pasti
+    SG -- meleset --> CR{"cari"}:::pasti
+    CR -- kosong --> TOLAK
+    CR -- "ada isi" --> JW["jawab<br/><i>model bahasa</i>"]:::model
+    JW --> PR["periksa cakupan + dukungan<br/><i>dukungan · L3.6</i>"]:::pasti
+    PR -- bersih --> CATAT
+    PR -- mencurigakan --> PST{"persetujuan<br/>interrupt()"}:::manusia
+    PST -- disetujui --> CATAT
+    PST -- ditolak --> TOLAK
+    TOLAK --> CATAT
+    CATAT --> END(["selesai"]):::io
+
+    classDef pasti fill:#EDEBDF,stroke:#5B5C52,color:#23241F,stroke-width:1px;
+    classDef model fill:#2C5F6B,stroke:#1B3C46,color:#F5F3EC,stroke-width:1px;
+    classDef manusia fill:#9C5B2E,stroke:#5E3714,color:#F5F3EC,stroke-width:1px;
+    classDef io fill:transparent,stroke:#23241F,color:#23241F,stroke-width:1.5px;
+</pre>
+        </div>
+        <figcaption><b>Gambar 6.</b> alur.py — satu <code>StateGraph</code>, tiga jenis langkah. <code>saring_masukan</code> dan pemeriksa <code>dukungan</code> adalah tambahan L3.6: pagar masukan menolak sebelum indeks tersentuh (nol token); dukungan memeriksa apakah potongan BENAR-BENAR mendukung klaim, terpisah dari sekadar adanya penanda <code>[n]</code>.</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid">
+      <div class="card h3" style="grid-column:1/-1;">
+        <span class="badge">L3.6</span>
+        <h3>Proyek Akhir — Pilih Dua Peningkatan, Lalu Ukur</h3>
+        <blockquote>Pilih DUA peningkatan, pasang, lalu UKUR dampaknya. Yang dinilai: alasan memilih + bukti angka — bukan banyaknya fitur.</blockquote>
+        <div class="fact">Menu 9 peningkatan tersedia sebagai rujukan di <code>solution/</code>; diukur sungguhan, <b>7 terbukti membaik</b> (korpus: recall 49%→100%; alat <code>hitung_tanggal</code> memperbaiki jawaban tanggal yang tadinya salah 2 hari) dan <b>2 terbukti tidak</b> — dilaporkan apa adanya, bukan disembunyikan.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GLOSARIUM ================= -->
+  <section id="glosarium">
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Glosarium Ringkas</h2></div>
+    <p class="sec-dek">Istilah inti, dikelompokkan berdasarkan hari pertama kali muncul.</p>
+
+    <div class="glos-day h1">
+      <h4>Hari 1</h4>
+      <div class="tagrow">
+        <span class="tag">chunking</span><span class="tag">embedding</span><span class="tag">vector store (Chroma)</span>
+        <span class="tag">similarity_search</span><span class="tag">sitasi [n]</span><span class="tag">MODE_TIRUAN</span>
+        <span class="tag">pelajaran F3 — indeks &amp; kueri harus 1 embedding</span>
+      </div>
+    </div>
+    <div class="glos-day h2">
+      <h4>Hari 2</h4>
+      <div class="tagrow">
+        <span class="tag">chunking per-jenis</span><span class="tag">konteks induk pada page_content</span>
+        <span class="tag">metadata status (berlaku/dicabut)</span><span class="tag">penyaring di kode, bukan prompt</span>
+        <span class="tag">BM25</span><span class="tag">RRF (reciprocal rank fusion)</span><span class="tag">reranker</span>
+        <span class="tag">perluasan singkatan</span><span class="tag">recall@k</span><span class="tag">periksa_sitasi</span>
+        <span class="tag">kemampuan menolak</span>
+      </div>
+    </div>
+    <div class="glos-day h3">
+      <h4>Hari 3</h4>
+      <div class="tagrow">
+        <span class="tag">agent loop (bind_tools)</span><span class="tag">StateGraph / ToolNode</span>
+        <span class="tag">supervisor + tim spesialis</span><span class="tag">sitasi bisa-diklik, baca-saja</span>
+        <span class="tag">RBAC (izin.py)</span><span class="tag">cache dikunci per hak akses</span>
+        <span class="tag">jejak / observability per langkah</span><span class="tag">p50 / p95</span>
+        <span class="tag">langkah pasti vs langkah model</span><span class="tag">interrupt() / human-in-the-loop</span>
+        <span class="tag">checkpointer</span><span class="tag">pagar masukan</span><span class="tag">dukungan sitasi</span>
+        <span class="tag">ambang eskalasi</span><span class="tag">ukur → ubah → ukur ulang</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <span>kelas/ — TX-AI11, 14 latihan, starter + solution mandiri per latihan.</span>
+  <span>Peta ini dibangun dari README tiap latihan &amp; pengukuran nyata di L3.6.</span>
+</footer>
