@@ -1,4 +1,4 @@
-# Deployment on-premise dengan Docker — modul A5
+# Deployment on-premise dengan Docker — L3.3-graf-multiagen
 
 Aplikasi `app.py` dibungkus menjadi satu container. **Ollama tetap berjalan di
 host**, bukan di dalam container — supaya model tidak perlu diunduh ulang dan
@@ -21,9 +21,12 @@ container dan Ollama di host.
 
 ## Bangun image
 
+Jalankan dari dalam folder latihan ini — `starter/` atau `solution/`, isi
+berkas Docker sama persis di keduanya:
+
 ```bash
-cd lab
-docker build -t tanya-sop .
+cd kelas/hari-3/L3.3-graf-multiagen/solution   # atau .../starter
+docker build -t tanya-sop-l33 .
 ```
 
 ## Jalankan
@@ -31,7 +34,7 @@ docker build -t tanya-sop .
 **Windows / macOS (Docker Desktop):**
 
 ```bash
-docker run --rm -p 127.0.0.1:8501:8501 tanya-sop
+docker run --rm -p 127.0.0.1:8501:8501 tanya-sop-l33
 ```
 
 **Linux** (butuh pemetaan host-gateway agar `host.docker.internal` dikenal):
@@ -39,7 +42,7 @@ docker run --rm -p 127.0.0.1:8501:8501 tanya-sop
 ```bash
 docker run --rm -p 127.0.0.1:8501:8501 \
   --add-host=host.docker.internal:host-gateway \
-  tanya-sop
+  tanya-sop-l33
 ```
 
 > **Perhatikan `127.0.0.1:` di depan pemetaan port.** Tanpa itu, `-p 8501:8501`
@@ -55,8 +58,8 @@ muncul `You can now view your Streamlit app`, buka `http://localhost:8501`.
 
 | Ubah | Perintah |
 |---|---|
-| Model chat lain | `docker run -e MODEL_CHAT=qwen3:4b -p 127.0.0.1:8501:8501 tanya-sop` |
-| Ollama di host lain | `docker run -e OLLAMA_BASE_URL=http://192.168.1.10:11434 -p 127.0.0.1:8501:8501 tanya-sop` |
+| Model chat lain | `docker run -e MODEL_CHAT=qwen3:4b -p 127.0.0.1:8501:8501 tanya-sop-l33` |
+| Ollama di host lain | `docker run -e OLLAMA_BASE_URL=http://192.168.1.10:11434 -p 127.0.0.1:8501:8501 tanya-sop-l33` |
 
 **Reranker tidak ikut di image ini.** `requirements-docker.txt` sengaja tidak
 memuat `sentence-transformers`, karena container menyetel `PAKAI_RERANKER=0`
@@ -72,7 +75,7 @@ Secara bawaan indeks dibangun ulang tiap container baru. Untuk menyimpannya,
 pasang volume ke folder `/app`:
 
 ```bash
-docker run --rm -p 8501:8501 -v tanyasop-indeks:/app tanya-sop
+docker run --rm -p 8501:8501 -v tanya-sop-l33-indeks:/app tanya-sop-l33
 ```
 
 > **Peringatan (pelajaran F3):** indeks pada volume terikat pada model embedding

@@ -1,4 +1,4 @@
-# Deployment on-premise aplikasi Tanya SOP — modul A5.
+# Deployment on-premise aplikasi Tanya SOP — kelas/hari-3/L3.2-antarmuka.
 #
 # Container ini HANYA membungkus aplikasi. Ollama tetap berjalan di HOST
 # (bukan di dalam container) supaya model tidak perlu diunduh ulang dan GPU
@@ -21,8 +21,10 @@ RUN pip install --no-cache-dir -r requirements-docker.txt
 
 # Salin kode dan korpus. Indeks (chroma_db/, potongan.pkl) sengaja TIDAK
 # disalin — dibangun saat container pertama kali start, dengan embedding yang
-# sama seperti di kelas. Lihat .dockerignore.
-COPY src/ ./src/
+# sama seperti di kelas. Berkas modul ini flat (tidak ada folder src/), jadi
+# disalin langsung ke /app — konfig.py menurunkan lokasi indeks dari lokasi
+# dirinya sendiri, jadi harus tetap sejajar dengan berkas lain di /app.
+COPY *.py ./
 COPY dokumen/ ./dokumen/
 COPY set_uji.json ./
 COPY docker-entrypoint.sh ./
@@ -37,6 +39,5 @@ ENV OLLAMA_BASE_URL=http://host.docker.internal:11434
 # host punya cukup memori.
 ENV PAKAI_RERANKER=0
 
-WORKDIR /app/src
 EXPOSE 8501
 ENTRYPOINT ["/app/docker-entrypoint.sh"]
